@@ -14,4 +14,18 @@ describe('uncapitalize', function() {
   it('should do nothing to lowercase strings', function() {
     expect(uncapitalize('test')).to.equal('test');
   });
+
+  describe('words', function() {
+    it('should work', function() {
+      expect(uncapitalize.words('This Is A Test')).to.equal('this is a test');
+    });
+
+    it('should do nothing to lowercase strings', function() {
+      expect(uncapitalize.words('this is a test')).to.equal('this is a test');
+    });
+
+    it('should only effect letters at the start of words', function() {
+      expect(uncapitalize.words('THIS IS A TEST')).to.equal('tHIS iS a tEST');
+    });
+  });
 });
